@@ -1,4 +1,4 @@
-[![Build status](https://dev.azure.com/glyle/simple-search/_apis/build/status/simple-search-Node.js%20With%20Grunt-CI)](https://dev.azure.com/glyle/simple-search/_build/latest?definitionId=21)
+[![Build Status](https://dev.azure.com/glyle/simple-search/_apis/build/status/simple%20search%20CI?branchName=master)](https://dev.azure.com/glyle/simple-search/_build/latest?definitionId=22&branchName=master)
 
 This mini project was created to 
 
