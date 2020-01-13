@@ -13,12 +13,15 @@ This mini project was created to
 5. Fetch new dataset with user input
 
 The Design
+
 Choosing a framework for the design was easy, it could only be Bootstrap as it quickly gives me a clean, stylish look and as it's one of the most popular frameworks, it also gives the user familarity from the start. Although, BULMA (https://bulma.io/) has been getting some attention recently so it might be nice to try an alternative framework for other mini projects.
 
 The Components
+
 In the past few months, I have been reading up on TDD and although i haven't put it into practice yet, I do believe that it changes how you think about your project, how you break it down and ultimately allows you to write cleaner code. With that being said, from the beginning of this project I broke it down into small manageable tasks to allow me to identity quickly which elements can be pulled out and reused in the future. I particulary like to do this with basic UI components (headings, text alerts etc) as it allows us to remove the clutter of class names from the main component so we can focus on what it is trying to do.
 
 Code Comments
+
 You might notice that there's not alot of comments in my code, there's a reason for that. Along with intuitive naming conventions, I try to separate my code into small chunks so that it can be easily read, understood and maintained. Don't get me wrong comments are very important to explain logic or if destructuring has gone so far, it's hard to see what the code was originaly intended to do but for this mini project, there didn't seem to be much too explain.
 
 ## Would I change it?
