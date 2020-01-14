@@ -30,12 +30,13 @@ If i was to do this project again, I would look into the different scenarios tha
 ## Future development
 There are quite a few things that i would like to develop further within this mini project
 
-1. Separate the API call
-2. Add Cypress E2E tests
-3. Increase code coverage throughout the application
-4. Continue to add typechecking with PropTypes
-5. Implement pagination (try with paged API)
-6. Try fetching data from Twitter API
+1. Add debounce to stop handleChange firing with every keystroke
+2. Separate the API call
+3. Add Cypress E2E tests
+4. Increase code coverage throughout the application
+5. Continue to add typechecking with PropTypes
+6. Implement pagination (try with paged API)
+7. Try fetching data from Twitter API
 
 --------
 
