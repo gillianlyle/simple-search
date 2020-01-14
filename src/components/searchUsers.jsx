@@ -63,7 +63,7 @@ export default class SearchUsers extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-group mb-3 alert alert-secondary">
-                        <Input type="text" placeholder="Search by name or username" arialabel="Search" value={value} onchange={this.handleChange} required />
+                        <Input type="search" placeholder="Search by name or username" arialabel="Search" value={value} onchange={this.handleChange} required />
                         <div className="input-group-append">
                             <PrimaryButton type="submit">Search</PrimaryButton>
                         </div>
