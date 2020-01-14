@@ -22,10 +22,10 @@ In the past few months, I have been reading up on TDD and although i haven't put
 
 Code Comments
 
-You might notice that there's not alot of comments in my code, there's a reason for that. Along with intuitive naming conventions, I try to separate my code into small chunks so that it can be easily read, understood and maintained. Don't get me wrong comments are very important to explain logic or if destructuring has gone so far, it's hard to see what the code was originaly intended to do but for this mini project, there didn't seem to be much too explain.
+You might notice that there's not alot of comments in my code, there's a reason for that. Along with intuitive naming conventions, I try to separate my code into small chunks so that it can be easily read, understood and maintained. Don't get me wrong comments are very important to explain logic or if destructuring has gone so far that it's hard to see what the code was originaly intended to do but for this mini project, there didn't seem to be much to explain.
 
 ## Would I change it?
-If i was to do this project again, I would look into the different scenarios that the user might encounter (isLoaded, error, no results), I know i have added these into the current project but I feel this could be better written. 
+If i was to do this project again, I would look into the different scenarios that the user might encounter (isLoaded, error, no results), I know i have added these into the current project but I feel this could be improved. I'd also like to rewrite the class component to use react hooks, something that I've yet to dive into.
 
 ## Future development
 There are quite a few things that i would like to develop further within this mini project
