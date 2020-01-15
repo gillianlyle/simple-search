@@ -20,7 +20,7 @@ export default class SearchUsers extends Component {
             searchTerm: '',
             isLoaded: true,
             error: null,
-            count: null 
+            count: null
         }
     }
 
@@ -46,7 +46,7 @@ export default class SearchUsers extends Component {
                 this.setState({
                     isLoaded: false,
                     data: response.data.items, // assign the returned results to data array
-                    count: response.data.total_count 
+                    count: response.data.total_count
                 })
             })
             .catch(error => this.setState({ error, isLoaded: false }));
@@ -59,7 +59,7 @@ export default class SearchUsers extends Component {
 
         return (
             <div className="container">
-                <H1 title="Search Github" description="To find a GitHub profile, simply search by name or username." />
+                <H1 title="Search Github">To find a GitHub profile, simply search by name or username.</H1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-group mb-3 alert alert-secondary">

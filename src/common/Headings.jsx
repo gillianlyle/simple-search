@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const H1 = ({ title, description }) => {
+const H1 = ({ title, children }) => {
     return (
         <>
             <h1 className="display-4 text-center">{title}</h1>
-            <p className="lead text-center">{description}</p>
+            <p className="lead text-center">{children}</p>
         </>
     )
 }
@@ -13,6 +13,5 @@ const H1 = ({ title, description }) => {
 export { H1 };
 
 H1.propTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string
+    title: PropTypes.string
 };
