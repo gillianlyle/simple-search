@@ -5,7 +5,7 @@ const CardList = ({ data }) => {
     return (
         // loop through the data array and return a <Card> for each item
         data.map((user =>
-            <Card {...user} />
+            <Card {...user} key={user.id} />
         ))
     )
 }

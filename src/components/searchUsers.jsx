@@ -1,82 +1,84 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CardList from '../common/CardList';
 import { H1 } from '../common/Headings';
-import Input from '../common/Input';
-import { PrimaryButton } from '../common/Button';
-import { AlertDanger, AlertInfo, AlertWarning } from './../common/TextAlerts';
+import {Input, PrimaryButton} from '../common/InputControls';
+import { AlertDanger, AlertInfo } from '../common/TextAlerts';
 
-// Create API url
+// Create API url -  https://api.github.com/search/users?q=
 const PATH_BASE = 'https://api.github.com';
 const PATH_SEARCH = '/search';
 const PARAM_SEARCH = '/users?q='
 
-export default class SearchUsers extends Component {
+const card = {
+    width: "16rem",
+    display: "inline-block",
+    margin: "10px"
+}
 
-    constructor() {
-        super();
-        this.state = {
-            data: [],
-            searchTerm: '',
-            isLoaded: true,
-            error: null,
-            count: null
-        }
+const SearchUsers = () => {
+
+    // declare new state variables
+    const [data, setData] = useState([]);
+    const [query, setQuery] = useState('react');
+    const [url, setUrl] = useState(`${PATH_BASE}${PATH_SEARCH}${PARAM_SEARCH}react`);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+
+    const handleOnChange = event => setQuery(event.target.value);
+    const handleSubmit = event => {
+        setUrl(`${PATH_BASE}${PATH_SEARCH}${PARAM_SEARCH}${query}`);
+        event.preventDefault();
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({
-            isLoaded: true
-        })
-        this.getGitHubData(this.state.searchTerm)
-    }
+    // fetch data
+    useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+      try {
+        const result = await axios(url);
+        setData(result.data.items);
+      } catch (error) {
+        setIsError(true);
+      }
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [url]); //fire data request once url changes
 
-    handleChange = (e) => {
-        this.setState({ searchTerm: e.target.value })
-    }
-
-    componentDidMount() {
-        this.getGitHubData();
-    }
-
-    getGitHubData(searchTerm) {
-        axios.get(`${PATH_BASE}${PATH_SEARCH}${PARAM_SEARCH}${searchTerm}`)
-            .then(response => {
-                this.setState({
-                    isLoaded: false,
-                    data: response.data.items, // assign the returned results to data array
-                    count: response.data.total_count
-                })
-            })
-            .catch(error => this.setState({ error, isLoaded: false }));
-    }
-
-    render() {
-        const data = this.state;
-        const value = this.state.searchTerm;
-        const { error, isLoaded, count } = this.state;
-
-        return (
-            <div className="container">
+    return (
+        <div className="container">
                 <H1 title="Search Github">To find a GitHub profile, simply search by name or username.</H1>
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="input-group mb-3 alert alert-secondary">
-                        <Input type="search" placeholder="Search by name or username" arialabel="Search" value={value} onchange={this.handleChange} required />
+                        <Input type="search" placeholder="Search by name or username" arialabel="Search" value={query} onchange={handleOnChange} required />
                         <div className="input-group-append">
                             <PrimaryButton type="submit">Search</PrimaryButton>
                         </div>
                     </div>
                 </form>
 
-                {error && <AlertDanger>Oops something went wrong</AlertDanger>}
-                {isLoaded && <AlertInfo>Getting data...</AlertInfo>}
-                {count === 0 && <AlertWarning>No results</AlertWarning>}
+                {isError && <AlertDanger>Oops something went wrong</AlertDanger>}
 
-                <CardList {...data} />
-
-            </div >
-        )
-    }
+                {isLoading ? (
+                    <AlertInfo>Getting data...</AlertInfo>
+                ) : (
+                        <ul>
+                            {data.map(item => (
+                                <div className="card" style={card} key={item.id}>
+                                    <img src={item.avatar_url} className="card-img-top" alt={item.login} />
+                                    <div className="card-body">
+                                        <h5 className="card-title"><a href={item.html_url}>{item.login}</a></h5>
+                                        <p className="card-text">Score: {item.score} <br /></p>
+                                    </div>
+                                </div>
+                            ))}
+                        </ul> 
+                    )
+                }
+            </div>
+    );
 }
+
+export default SearchUsers;

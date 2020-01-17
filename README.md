@@ -30,7 +30,7 @@ If i was to do this project again, I would look into the different scenarios tha
 ## Future development
 There are quite a few things that i would like to develop further within this mini project
 
-1. Convert to Hooks (currently in Develop) 
+1. Convert to Hooks &#10004;
 2. Separate the API call
 3. Add Cypress E2E tests
 4. Increase code coverage throughout the application

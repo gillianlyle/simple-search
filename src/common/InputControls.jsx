@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ type, value, onchange, placeholder, ariaLabel }) => {
+export const Input = ({ type, value, onchange, placeholder, ariaLabel }) => {
     return (
         <input
             type={type}
@@ -14,4 +14,8 @@ const Input = ({ type, value, onchange, placeholder, ariaLabel }) => {
     )
 }
 
-export default Input;
+export const PrimaryButton = ({ type, children }) => {
+    return (
+        <button className="btn btn-primary" type={type}>{children}</button>
+    )
+}

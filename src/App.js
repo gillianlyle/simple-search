@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchUsers from './components/searchUsers';
+import SearchUsers from './components/SearchUsers';
 
 function App() {
   return (
