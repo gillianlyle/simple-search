@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CardList from '../common/CardList';
 import { H1 } from '../common/Headings';
-import Input from '../common/Input';
-import { PrimaryButton } from '../common/Button';
-import { AlertDanger, AlertInfo, AlertWarning } from '../common/TextAlerts';
+import {Input, PrimaryButton} from '../common/InputControls';
+import { AlertDanger, AlertInfo } from '../common/TextAlerts';
 
 // Create API url -  https://api.github.com/search/users?q=
 const PATH_BASE = 'https://api.github.com';
